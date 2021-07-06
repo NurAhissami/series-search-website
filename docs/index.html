@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Series</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;500;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/main.css" />
+  <link rel="icon" href="./assets/images/favicon.png" />
+</head>
+
+<body>
+  <div class="page">
+    <form class="form js-input">
+      <input class="form__series js-input-name" type="text" name="series" id="series" placeholder="Search..."
+        autocomplete="off">
+      <button type="submit" class="form__button js-button">Search</button>
+    </form>
+    <div class="containerall">
+      <p class="js-error hidden">No se ha encontrado ninguna serie</p>
+      <ul class="js-series-list containerseries"></ul>
+      <div class="contianerfavoriteslist">
+        <div class="containerfavorites">
+          <h3 class="favorites">Mis series favoritas</h3>
+          <button type="button" class="buttonReset js-buttonReset">Borrar listado</button>
+        </div>
+        <ul class="js-favorite-list listFav" id="style-3">
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
