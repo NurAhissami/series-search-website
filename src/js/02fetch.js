@@ -1,4 +1,4 @@
-form.addEventListener("submit", findSeries);
+form.addEventListener('submit', findSeries);
 
 // Array de la API
 let globalData = [];
@@ -7,7 +7,7 @@ let globalData = [];
 
 function findSeries(e) {
   e.preventDefault();
-  ("");
+  ('');
   const inputValue = inputSeries.value;
   if (!inputValue) return;
   globalData = [];
@@ -21,11 +21,11 @@ function findSeries(e) {
       });
       if (globalData.length > 0) {
         printShowCards(globalData);
-        error.classList.add("hidden");
-        listSeries.classList.remove("hidden");
+        error.classList.add('hidden');
+        listSeries.classList.remove('hidden');
       } else {
-        error.classList.remove("hidden");
-        listSeries.classList.add("hidden");
+        error.classList.remove('hidden');
+        listSeries.classList.add('hidden');
       }
     });
 }
@@ -33,18 +33,18 @@ function findSeries(e) {
 //Creamos una función que pinta las series en una lista.
 
 function printShowCards(show) {
-  let showList = "";
+  let showList = '';
 
   show.forEach((element) => {
-    let image = "";
+    let image = '';
     if (element.image == null) {
-      image = "https://via.placeholder.com/210x295/ffffff/666666/?text=TV";
+      image = 'https://via.placeholder.com/210x295/ffffff/666666/?text=TV';
     } else {
       image = element.image.medium;
     }
     const showClass = favoritesShow.find((fav) => fav.id === element.id)
-      ? "showfavCard"
-      : "showCard";
+      ? 'showfavCard'
+      : 'showCard';
     // console.log(isFavorite);
     showList += `<li id="${element.id}" class="${showClass} js-favorite"><img class="image" src="${image}" alt="${element.name}"></img><h3 class="title">${element.name}</h3> </li>`;
   });
