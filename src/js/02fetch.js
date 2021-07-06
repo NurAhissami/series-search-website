@@ -15,7 +15,6 @@ function findSeries(e) {
   fetch(`https://api.tvmaze.com/search/shows?q=${inputValue}`)
     .then((seriesResponse) => seriesResponse.json())
     .then((seriesData) => {
-      //recorremos el array para guardarlo en globalData
       seriesData.forEach((element) => {
         globalData.push(element.show);
       });
@@ -30,8 +29,6 @@ function findSeries(e) {
     });
 }
 
-//Creamos una función que pinta las series en una lista.
-
 function printShowCards(show) {
   let showList = '';
 
@@ -45,7 +42,6 @@ function printShowCards(show) {
     const showClass = favoritesShow.find((fav) => fav.id === element.id)
       ? 'showfavCard'
       : 'showCard';
-    // console.log(isFavorite);
     showList += `<li id="${element.id}" class="${showClass} js-favorite"><img class="image" src="${image}" alt="${element.name}"></img><h3 class="title">${element.name}</h3> </li>`;
   });
 

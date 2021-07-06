@@ -1,12 +1,11 @@
 function addListenersToCards() {
-  const allSeries = document.querySelectorAll(".js-favorite");
+  const allSeries = document.querySelectorAll('.js-favorite');
   for (const serie of allSeries) {
-    serie.addEventListener("click", updateFavoriteList);
+    serie.addEventListener('click', updateFavoriteList);
   }
 }
 
 addListenersToCards();
-//Creamos un array para favoritos
 
 let favoritesShow = [];
 
@@ -27,28 +26,28 @@ function updateFavoriteList(elementlist) {
       (element) => element.id === parseInt(favoriteElementID)
     );
     favoritesShow.push(selectedElement);
-    updateFavoriteEvent.classList.add("showfavCard");
-    updateFavoriteEvent.classList.remove("showCard");
+    updateFavoriteEvent.classList.add('showfavCard');
+    updateFavoriteEvent.classList.remove('showCard');
   } else {
     let i = favoritesShow.indexOf(showFavorites);
     favoritesShow.splice(i, 1);
-    updateFavoriteEvent.classList.add("showCard");
-    updateFavoriteEvent.classList.remove("showfavCard");
+    updateFavoriteEvent.classList.add('showCard');
+    updateFavoriteEvent.classList.remove('showfavCard');
   }
 
-  localStorage.setItem("favoritesSeries", JSON.stringify(favoritesShow));
+  localStorage.setItem('favoritesSeries', JSON.stringify(favoritesShow));
 
   printFavoriteList(favoritesShow);
 }
 
 function printFavoriteList(event) {
   if (!Array.isArray(event)) return;
-  let list = "";
+  let list = '';
 
   event.forEach((element) => {
-    let image = "";
+    let image = '';
     if (element.image == null) {
-      image = "https://via.placeholder.com/210x295/ffffff/666666/?text=TV";
+      image = 'https://via.placeholder.com/210x295/ffffff/666666/?text=TV';
     } else {
       image = element.image.medium;
     }
@@ -59,17 +58,17 @@ function printFavoriteList(event) {
   listFavoriteSeries.innerHTML = list;
 }
 
-listFavoriteSeries.addEventListener("click", removeItem);
+listFavoriteSeries.addEventListener('click', removeItem);
 
 function removeItem(event) {
-  if (event.target.type === "button") {
-    const id = event.target.getAttribute("data-id");
+  if (event.target.type === 'button') {
+    const id = event.target.getAttribute('data-id');
     const fav = favoritesShow.find((element) => element.id === parseInt(id));
 
     removeFavoriteList(fav);
     printFavoriteList(favoritesShow);
     printShowCards(globalData);
-    localStorage.setItem("favoritesSeries", JSON.stringify(favoritesShow));
+    localStorage.setItem('favoritesSeries', JSON.stringify(favoritesShow));
   }
 }
 
