@@ -12,7 +12,7 @@ function findSeries(e) {
   if (!inputValue) return;
   globalData = [];
 
-  fetch(`http://api.tvmaze.com/search/shows?q=${inputValue}`)
+  fetch(`https://api.tvmaze.com/search/shows?q=${inputValue}`)
     .then((seriesResponse) => seriesResponse.json())
     .then((seriesData) => {
       //recorremos el array para guardarlo en globalData
